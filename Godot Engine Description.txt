@@ -1,0 +1,53 @@
+Godot Engine
+
+
+Parte 1:
+
+
+Primeira parte fala sobre o editor e a interface do mesmo. 
+F1 - Acessa o workspace 2D
+F2 - Acessa o workspace 3D
+F3 - Acessa o workspace de Scripts
+F4 - Fornece todas as Classes e suas descrições
+
+Para alterar a interface da ferramenta, voltar ao inicio da documentação.
+
+
+Parte 2: 
+
+Nodes são como uma geladeira cheia de ingredientes que você pode utilizar.
+Tudo herda de Node (Node2D, Node3D, tudo)
+- Tem um nome
+- Tem propriedades editaveis
+- Pode receber um callback para processar os frames
+- Pode ser extendido para ter mais funções
+- Pode ser adicionado como node filho de um outro node
+
+OBS: É possivel criar uma arvore de Nodes
+
+
+Uma Cena é um grupo de nodes organizados hierarquicamente (Em forma de arvore).
+- Uma Cena sempre tem um Node raiz
+- Uma cena pode ser salva em disco de carregada de volta
+- Uma cena pode ser instanciada 
+
+Rodar um game é basicamente rodar uma Cena. Uma cena deve ser definida como principal (main scene).
+Godot editor é um editor de cenas.
+
+A partir daqui é fazer o tutorial e descobrir o que cada Node e recurso pode fazer. Tudo depende de cada objeto criado.
+
+# Em Project --> Project Settings --> Application --> Run podemo definir a Main Scene 
+  Realizando esse procedimento, não importa a cena que esta sendo editada, essa cena sera executada primeiro.
+
+Na documentação , em Scenes and Nodes --> Configuring the project podemos ler sobre ProjectSettings, que diz
+como mudar as configurações de projeto via scripts e interface.
+
+
+Parte 3:
+
+
+
+
+
+
+
