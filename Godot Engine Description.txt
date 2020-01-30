@@ -46,6 +46,37 @@ como mudar as configurações de projeto via scripts e interface.
 Parte 3:
 
 
+Um projeto pode conter um numero Ilimitado de Cenas. Dessa forma, tem-se Os pacotes de cenas.
+Cada pacote tem a extensão ".tscn" como nome.
+
+# Uma cena salva pode ser instanciada ou ser posta como instancia de outra cena.
+
+No exemplo do tutorial, temos 2 Cenas: Um "suporte" e uma Bola.
+Pegamos então instancias da bola e fazemos dela uma instancia da cena principal.
+
+# Se modificarmos atributos de uma instancia, mudamos de todas elas. Por isso, precisamos torna-las unicas na cena a qual
+  uma sub-cena inserida pertence.(Em algum canto temos um botao "Make Unique" para que a alteração em uma instancia não
+  afeta outras)
+
+# Em canvasItem --> visibility conseguimos mudar a cor do objeto. (Ainda não sabemos como pintar um objeto com várias
+  cores, como criar um personagem com roupas. Mas me parece que criamos a imagem e depois damos movimento á elas)
+
+
+
+Parte 4: (Pra mim o mais importante - Scripting)
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
 
 
 
