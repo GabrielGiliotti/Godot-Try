@@ -66,6 +66,25 @@ Pegamos então instancias da bola e fazemos dela uma instancia da cena principal.
 Parte 4: (Pra mim o mais importante - Scripting)
 
 
+Em resumo as opções são utilizar as linguagens:
+
+GDScript - Aceita diretamente pela iterface, muito próxima de Python e LUA.
+C++ - é mais eficiente para games.
+
+"Finally, one of our brightest additions for the 3.0 release: GDNative allows scripting in C++ without needing to 
+ recompile (or even restart) Godot." 
+
+OBS: C++ não tem suport oficial, ja GDScript tem.
+
+
+Nodes devem ser referenciados pelo nome e nao pelo tipo.
+
+O exemplo de uso de script foi feito com um botao e 2 labels. (1 estatico e 1 dinamico)
+Acredito que ainda não haja conhecimento suficiente para docuemntar scripts completos.
+Assim que ganhar pratica faço uma doc melhor sobre as funções e as cenas montadas.
+
+
+Parei em: Scripting (Continued)
 
 
 
