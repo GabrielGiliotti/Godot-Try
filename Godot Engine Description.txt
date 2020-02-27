@@ -28,7 +28,7 @@ OBS: É possivel criar uma arvore de Nodes
 
 Uma Cena é um grupo de nodes organizados hierarquicamente (Em forma de arvore).
 - Uma Cena sempre tem um Node raiz
-- Uma cena pode ser salva em disco de carregada de volta
+- Uma cena pode ser salva em disco e carregada de volta
 - Uma cena pode ser instanciada 
 
 Rodar um game é basicamente rodar uma Cena. Uma cena deve ser definida como principal (main scene).
@@ -36,7 +36,7 @@ Godot editor é um editor de cenas.
 
 A partir daqui é fazer o tutorial e descobrir o que cada Node e recurso pode fazer. Tudo depende de cada objeto criado.
 
-# Em Project --> Project Settings --> Application --> Run podemo definir a Main Scene 
+# Em Project --> Project Settings --> Application --> Run podemos definir a Main Scene 
   Realizando esse procedimento, não importa a cena que esta sendo editada, essa cena sera executada primeiro.
 
 Na documentação , em Scenes and Nodes --> Configuring the project podemos ler sobre ProjectSettings, que diz
@@ -79,9 +79,18 @@ OBS: C++ não tem suport oficial, ja GDScript tem.
 
 Nodes devem ser referenciados pelo nome e nao pelo tipo.
 
-O exemplo de uso de script foi feito com um botao e 2 labels. (1 estatico e 1 dinamico)
-Acredito que ainda não haja conhecimento suficiente para docuemntar scripts completos.
+O exemplo de uso de script foi feito com um botao e 2 labels. (1 estatico e 1 dinamico) (Nome Script: Kill)
+
+Acredito que ainda não haja conhecimento suficiente para documentar scripts completos.
 Assim que ganhar pratica faço uma doc melhor sobre as funções e as cenas montadas.
+
+
+Em um jogo de arma onde há bots aliados e inimigos, criamos grupos para dividir os times (por exemplo).
+No godot, para se trabalhar com os Groups é necessário tem um node, onde o grupo fica nesse node.
+
+
+
+
 
 
 Parei em: Scripting (Continued)
