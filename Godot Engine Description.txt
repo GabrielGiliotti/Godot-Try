@@ -90,23 +90,147 @@ No godot, para se trabalhar com os Groups é necessário tem um node, onde o grupo
 
 
 
+Scripting (Continued)
 
 
+Varias ações no godot são acionadas por callbacks ou virtual functions. Mas é comum a necessidade de um script rodar
+cada frame de uma cena. 
 
-Parei em: Scripting (Continued)
+Elas usam ou Idle processing ou physics processing
 
+Idle é ativado com a chamada do método Node._process(). Esse metodo pode ser ativado e desativado pela função 
+Node.set_process().
 
+A frquencia com a qual esse metodo sera chamado depende de quantos frames por segundo (FPS) sua aplicação estará rodando.
+Sua taxa pode variar de acordo com o tempo ou de acordo com o dispositivo.
+
+Para ajudar a gerenciar a variabilidade, um parametro "delta" é passado e contem o tempo percorrido em segundos, a partir
+da ultima chamada de _process();
+
+Por exemplo, tempos de movimentos são frequentemente multiplicados pelo delta, para fazer a valocidade do movimento
+constante e independente da taxa de frames.
 
  
+physics_proccess() é similar, mas deve ser usado para processos que ocorrem antes de passos fisicos, como controlar um
+personagem. Sempre roda antes de um passo fisico e é chamado em intervalos de tempo fixos: 60 segundos.
+
+Em:   Project Settings, under Physics -> Common -> Physics Fps    podemos mudar o tempo desse intervalo
+
+
+
+ * Groups (Em Scripting continued)
+
+
+Para adicionar grupos é necessário ter um node selecionado. A aba de grupos fica baixo da aba Node no lado direito da
+interface. Também é possivel adicionar grupos por script, mas não vou colocar os scripts aqui.
+
+Na SceneTree existem varios metodos bons para se realizar açoes. Se possivel olhar eles depois
+
+
+ * Notifications (Em scripting continued)
+
+
+Em Class Reference podem ser vistas os tipos de notificações que podemser recebidos. GDScript tambem fornece funções
+simples que podem ser sobrescritas.
+
+
+ * Overridable functions
+
+    Todas essas funções são sobrescreviveis e podem ser aplicadas em nodes:
+
+    func _enter_tree():
+    # When the node enters the Scene Tree, it becomes active
+    # and  this function is called. Children nodes have not entered
+    # the active scene yet. In general, it's better to use _ready()
+    # for most cases.
+    pass
+
+    func _ready():
+    # This function is called after _enter_tree, but it ensures
+    # that all children nodes have also entered the Scene Tree,
+    # and became active.
+    pass
+
+    func _exit_tree():
+    # When the node exits the Scene Tree, this function is called.
+    # Children nodes have all exited the Scene Tree at this point
+    # and all became inactive.
+    pass
+
+    func _process(delta):
+    # This function is called every frame.
+    pass
+
+    func _physics_process(delta):
+    # This is called every physics frame.
+    pass
+
+    É melhor utilizar essas funções no codigo sobrescrevendo todas , que usar as notificações do sistema
+ 	
+
+
+ * Criando um node via script 
  
+    var s
+    func _ready():
+    s = Sprite.new() # Create a new sprite!
+    add_child(s) # Add it as a child of this node.
 
 
+    Para remover um node criado, faça:
+
+    func _someaction():
+    s.free() # Immediately removes the node from the scene and frees it.
 
 
+    Ao remover um node, seus nodes filhos tambem removidos (efeito cascata) 
+    Para remover um node sem ter problemas, utilize a função queue_free() que reconheçe se um node ou sub node esta
+    executando algum processo e espera seu termino para exclui-lo.
+
+    func _someaction():
+    s.queue_free() # Removes the node from the scene and frees it when it becomes safe to do so.
+    	
+
+ * Instanciando cenas 
+
+    Para instanciar uma cena é necessario utilizar esses 2 passos: 
+            
+    1 - var scene = load("res://myscene.tscn") # Will load when the script is instanced.
+  
+    ou 
+ 
+    1 - var scene = preload("res://myscene.tscn") # Will load when parsing the script.
+ 
+    Para criar uma cena efetivamente, é necessario chamar o codigo :
+
+    2 - var node = scene.instance()
+        add_child(node)
+
+    A vantagem de se usar esses dois passos é que a cena se mantem carregada e pronta para uso, então voce pode criar
+    quantas instancias forem necessarias. Isso é muito util para instanciar varios inimigos, balas ou outras entidades
+    na cena que esta ativa.
+
+ 
+ * Registrar a classe de scripts
+
+    Você pode nomear um script e registrá-lo como um tipo no editor com a palavra-chave class_name seguida pelo nome da 
+    classe. Você pode adicionar uma vírgula e um caminho opcional a uma imagem para usar como ícone. Você encontrará seu 
+    novo tipo na caixa de diálogo Criação de nó ou recurso.
+  
+   
+        extends Node
+
+        # Declare the class name here
+        class_name ScriptName, "res://path/to/optional/icon.svg"
+
+        func _ready():
+        var this = ScriptName           # reference to the script
+        var cppNode = MyCppNode.new()   # new instance of a class named MyCppNode
+
+        cppNode.queue_free()
+   
 
 
+ Parei em Signals
 
-
-
-
-
+	
